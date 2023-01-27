@@ -1,17 +1,47 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
+
+// import formik and yup
 import { Formik, Form, Field } from 'formik';
 import * as yup from "yup";
 
 
+
+// import react router dom components
 import { Link } from 'react-router-dom';
+
+
+// import axios 
+import axios from '../../../assets/api/api'
+
+import AuthContext from '../../../context/AuthProvider';
+
 
 
 function LoginForm() {
 
-  const handleFormSubmit = () => {
-        console.log("Working")
-  }
+  const { setAuth } = useContext(AuthContext);
+
+  const handleFormSubmit = (values, {resetForm}) => {
+    
+    const user = values['email']
+    const pwd = values['password']
+
+    axios.post(`auth/jwt/create`, values)
+    .then((response) => {
+      resetForm();
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ user, pwd, roles, accessToken });
+      console.log(response)
+      
+    })
+    .catch((error) => {
+      console.log(error.message)
+    })
+
+    
+}
 
 
 

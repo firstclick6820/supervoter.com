@@ -17,6 +17,9 @@ import PasswordResetConfirm from './auth/password/PasswordResetConfirm'
 import PasswordResetComplete from './auth/password/PasswordResetComplete'
 
 
+// Import Profile
+import Profile from './auth/profile/Profile'
+import Settings from './auth/profile/Settings'
 // import Content Pages
 import Polls from './polls/Polls'
 
@@ -35,6 +38,8 @@ const Pages = () => {
             <Route exact path="/account/password_reset/done" element={<PasswordResetDone />} />
             <Route exact path="/account/password_confirm" element={<PasswordResetConfirm />} />
             <Route exact path="/account/password_confirm/complete" element={<PasswordResetComplete />} />
+            <Route exact path="/user/profile" element={<Profile />} />
+            <Route exact path="/user/settings" element={<Settings />} />
         </Routes>
     </div>
   )
