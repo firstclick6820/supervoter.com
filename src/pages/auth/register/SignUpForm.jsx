@@ -50,7 +50,7 @@ function SignUpForm() {
 
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                               for="email">Account Type</label>
+                               htmlFor="email">Account Type</label>
                         <Field
                             id="account_type"
                             name="account_type"
@@ -59,7 +59,7 @@ function SignUpForm() {
                             onChange={handleChange}
                             value={values.account_type}
                             error={!!touched.account_type && !!errors.account_type}
-                            helperText={touched.account_type && errors.account_type}
+                            helpertext={touched.account_type && errors.account_type}
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
                             <option>Select Account Type</option>
                             <option value="creator">I am a content creator</option>
@@ -72,7 +72,7 @@ function SignUpForm() {
 
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                               for="email">Email</label>
+                               htmlFor="email">Email</label>
                         <Field
                             id='email'
                             required
@@ -84,7 +84,7 @@ function SignUpForm() {
                             onChange={handleChange}
                             value={values.email}
                             error={!!touched.email && !!errors.email}
-                            helperText={touched.email && errors.email}
+                            helpertext={touched.email && errors.email}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
         
                             {errors.email && touched.email ? (
@@ -94,7 +94,7 @@ function SignUpForm() {
                                 
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for='password'>Password</label>
+                            htmlFor='password'>Password</label>
                         <Field
                             required
                             id="password"
@@ -106,7 +106,7 @@ function SignUpForm() {
                             onChange={handleChange}
                             value={values.password}
                             error={!!touched.password && !!errors.password}
-                            helperText={touched.password && errors.password}
+                            helpertext={touched.password && errors.password}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
 
                             {errors.password && touched.password ? (
@@ -115,7 +115,7 @@ function SignUpForm() {
 
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for='confirm_password'>Confirm Password</label>
+                            htmlFor='confirm_password'>Confirm Password</label>
                         <Field
                             required
                             label="Confirm Password"
@@ -127,7 +127,7 @@ function SignUpForm() {
                             onChange={handleChange}
                             value={values.re_password}
                             error={!!touched.re_password && !!errors.re_password}
-                            helperText={touched.re_password && errors.re_password}
+                            helpertext={touched.re_password && errors.re_password}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
 
                             {errors.re_password && touched.re_password ? (
@@ -144,7 +144,7 @@ function SignUpForm() {
                                     required="" />
                         </div>
                         <div className="ml-3 text-sm">
-                            <label  for="terms" 
+                            <label  htmlFor="terms" 
                                     className="font-light text-gray-500 dark:text-gray-300">I accept the 
                                     <Link to="/"
                                           className="hover:underline decoration-2 hover:text-red-600">

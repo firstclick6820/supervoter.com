@@ -33,7 +33,7 @@ function PasswordResetConfirmForm() {
                 <div className="grid grid-cols-1 gap-4">
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for='password'>Password</label>
+                            htmlFor='password'>Password</label>
                         <Field
                             required
                             id="password"
@@ -45,7 +45,7 @@ function PasswordResetConfirmForm() {
                             onChange={handleChange}
                             value={values.password}
                             error={!!touched.password && !!errors.password}
-                            helperText={touched.password && errors.password}
+                            helpertext={touched.password && errors.password}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
 
                             {errors.password && touched.password ? (
@@ -55,7 +55,7 @@ function PasswordResetConfirmForm() {
 
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for='confirm_password'>Confirm Password</label>
+                            htmlFor='confirm_password'>Confirm Password</label>
                         <Field
                             required
                             id="confirm_password"
@@ -67,7 +67,7 @@ function PasswordResetConfirmForm() {
                             onChange={handleChange}
                             value={values.confirm_password}
                             error={!!touched.confirm_password && !!errors.confirm_password}
-                            helperText={touched.confirm_password && errors.confirm_password}
+                            helpertext={touched.confirm_password && errors.confirm_password}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
 
                             {errors.confirm_password && touched.confirm_password ? (

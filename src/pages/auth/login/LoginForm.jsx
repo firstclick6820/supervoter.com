@@ -1,4 +1,5 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
+
 
 
 // import formik and yup
@@ -11,37 +12,15 @@ import * as yup from "yup";
 import { Link } from 'react-router-dom';
 
 
-// import axios 
-import axios from '../../../assets/api/api'
 
-import AuthContext from '../../../context/AuthProvider';
-
-
-
-function LoginForm() {
-
-  const { setAuth } = useContext(AuthContext);
+function LoginForm({login}) {
 
   const handleFormSubmit = (values, {resetForm}) => {
-    
-    const user = values['email']
+    const email = values['email']
     const pwd = values['password']
-
-    axios.post(`auth/jwt/create`, values)
-    .then((response) => {
-      resetForm();
-      const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ user, pwd, roles, accessToken });
-      console.log(response)
-      
-    })
-    .catch((error) => {
-      console.log(error.message)
-    })
-
-    
-}
+    login(email, pwd)
+    resetForm()
+  }
 
 
 
@@ -64,7 +43,7 @@ function LoginForm() {
 
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                               for="email">Email</label>
+                               htmlFor="email">Email</label>
                         <Field
                             id='email'
                             required
@@ -76,7 +55,7 @@ function LoginForm() {
                             onChange={handleChange}
                             value={values.email}
                             error={!!touched.email && !!errors.email}
-                            helperText={touched.email && errors.email}
+                            helpertext={touched.email && errors.email}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
         
                             {errors.email && touched.email ? (
@@ -85,7 +64,7 @@ function LoginForm() {
                                 
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for='password'>Password</label>
+                            htmlFor='password'>Password</label>
                         <Field
                             required
                             id="password"
@@ -97,7 +76,7 @@ function LoginForm() {
                             onChange={handleChange}
                             value={values.password}
                             error={!!touched.password && !!errors.password}
-                            helperText={touched.password && errors.password}
+                            helpertext={touched.password && errors.password}
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
 
                             {errors.password && touched.password ? (
