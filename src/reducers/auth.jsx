@@ -5,7 +5,15 @@ import {
         LOGIN_SUCCESS,
         AUTHENTICATED_SUCCESS,
         AUTHENTICATED_FAIL,
-        LOGGOUT
+        LOGGOUT,
+        PASSWORD_RESET_CONFIRM_FAIL,
+        PASSWORD_RESET_CONFIRM_SUCCESS,
+        PASSWORD_RESET_FAIL,
+        PASSWORD_RESET_SUCCESS,
+        SIGNUP_FAIL, 
+        SIGNUP_SUCCESS,
+        ACTIVATION_FAIL, 
+        ACTIVATION_SUCCESS
     } from '../actions/types';
 
 
@@ -50,20 +58,19 @@ export default function(state= intialState, action) {
             }
 
 
-        // Login Failed
-        case LOGIN_FAIL: 
-            localStorage.removeItem('access');
-            localStorage.removeItem('refresh')
+
+        // Sign up Success
+        case SIGNUP_SUCCESS:
             return {
                 ...state,
                 isAuthenticated: false,
-                access: null,
-                refresh: null,
-                user:null,
-
             }
 
-        // Logout 
+
+
+        // Sing up fail, Login Fail, Loggout
+        case SIGNUP_FAIL:
+        case LOGIN_FAIL: 
         case LOGGOUT: 
             localStorage.removeItem('access');
             localStorage.removeItem('refresh')
@@ -91,7 +98,17 @@ export default function(state= intialState, action) {
                 user: null
                 }
 
-       
+        case PASSWORD_RESET_SUCCESS:
+        case PASSWORD_RESET_FAIL:
+        case PASSWORD_RESET_CONFIRM_FAIL:
+        case PASSWORD_RESET_CONFIRM_SUCCESS:
+        case ACTIVATION_SUCCESS:
+        case ACTIVATION_FAIL:
+            return {
+                ...state
+            }
+
+    
 
         default: 
             return state

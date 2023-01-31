@@ -12,8 +12,8 @@ const PasswordResetComplete = () => {
                         <h2 className="font-weight-bold mt-3 text-2xl font-bold mb-5">Password Reset Done</h2>
                             <p className='mb-10'>Your password has been set. You may go ahead and log in now!</p>                 
                             <p>
-                                <Link 
-                                    className="hover:text-red-600 hover:underline decoration-2 cursor-pointer text-indigo-600 mt-20"     to="/account/login">Login
+                                <Link   to="/account/login"
+                                        className="hover:text-red-600 hover:underline decoration-2 cursor-pointer text-indigo-600 mt-20">Login
                                 </Link>
                             </p>
                 

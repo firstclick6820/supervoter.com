@@ -1,16 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import { Formik, Form, Field } from 'formik';
 import * as yup from "yup";
 
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 
-function PasswordResetConfirmForm() {
+function PasswordResetConfirmForm({action, match}) {
+  const [done, setDone] = useState(false)
+  const handleFormSubmit = (values, {resetForm}) => {
+       const uid = "MQ"
+        const token = "biwffu-c6d914d85d924cc1e735a86ed2947479"
+        // const uid = match.params.uid;
+        // const token = match.params.token;
+        const new_password = values['password']
+        const re_new_password = values['confirm_password']
 
-  const handleFormSubmit = () => {
-        console.log("Working")
+        action(uid, token, new_password, re_new_password)
+        resetForm();
+        setDone(true)
+
+  }
+
+  if(done) {
+    return <Navigate to="/account/password_confirm/complete" />
   }
 
 
@@ -62,7 +76,7 @@ function PasswordResetConfirmForm() {
                             label="confirm_password"
                             name='confirm_password'
                             placeholder="********"
-                            type="confirm_password"
+                            type="password"
                             onBlur={handleBlur}
                             onChange={handleChange}
                             value={values.confirm_password}

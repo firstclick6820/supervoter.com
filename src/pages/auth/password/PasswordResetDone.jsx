@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 const PasswordResetDone = () => {
   return (
         <main id='content'> 
@@ -10,7 +12,11 @@ const PasswordResetDone = () => {
                         
                         <hr className="mb-6 border-t" />
                         <p>We've emailed you instructions for setting your password, if an account exists with the email you entered. You should receive them shortly.<br />If you don't receive an email, please make sure you've entered the address you registered with, and check your spam folder.</p>
-                        <p><a className="hover:text-red-600 hover:underline decoration-2 cursor-pointer text-indigo-600 mt-10" href="{% url 'homePage' %}">Go Home</a></p>
+                        <p><Link to="/"
+                                 className="hover:text-red-600 hover:underline decoration-2 cursor-pointer text-indigo-600 mt-10">
+                                Go Home
+                           </Link>
+                        </p>
                     </div>
                 </div>
             </div>

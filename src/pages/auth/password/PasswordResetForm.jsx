@@ -1,16 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import { Formik, Form, Field } from 'formik';
 import * as yup from "yup";
 
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 
-function PasswordResetForm() {
+function PasswordResetForm({password_reset}) {
+  const [sent, setSent] = useState(false)
+  const handleFormSubmit = (values, {resetForm}) => {
+        const email = values['email']
+        password_reset(email)
+        resetForm();
+        setSent(true)      
+  }
 
-  const handleFormSubmit = () => {
-        console.log("Working")
+  if(sent){
+    return <Navigate to="/account/password_reset/done" />
   }
 
 
